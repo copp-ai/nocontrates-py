@@ -93,6 +93,7 @@
       lines.push("Empleados: " + (data.get("empleados") || "-"));
       lines.push("Rol: " + (data.get("rol") || "-"));
       lines.push("Area / Topico: " + (data.get("area") || "-"));
+      lines.push("Mano derecha: " + (data.get("mano_derecha") || "-"));
       lines.push("");
       lines.push("Problema:");
       lines.push(data.get("problema") || "-");
@@ -134,6 +135,9 @@
           <p class="reveal visible reveal-delay-2 text-lg md:text-xl text-[#F5F5F0]/70 leading-relaxed max-w-lg">
             El 80% de los puestos que abrís son puentes humanos entre sistemas que no se hablan. 
             Te armo el prototipo que los reemplaza en <strong class="text-[#F5F5F0]">5 días</strong>.
+          </p>
+          <p class="reveal visible reveal-delay-2 text-sm text-[#D4FF00]/60 font-mono max-w-lg">
+            ⚡ Dejá de apagar incendios. Empezá a diseñar.
           </p>
           <div class="reveal visible reveal-delay-3 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
             <a href="javascript:void(0)" onclick="document.getElementById('filter').scrollIntoView({behavior:'smooth'})" class="btn-primary px-8 py-4 rounded-xl text-base inline-flex items-center gap-2">
@@ -194,12 +198,13 @@
       <div class="grid md:grid-cols-3 gap-6 stagger-children">
         <div class="bg-white rounded-xl p-8 border border-[#0A0A0A]/5 shadow-sm">
           <div class="w-12 h-12 rounded-lg bg-[#0A0A0A]/5 flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-[#0A0A0A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <svg class="w-6 h-6 text-[#0A0A0A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <h3 class="font-heading font-bold text-xl mb-3">El reflejo caro</h3>
+          <h3 class="font-heading font-bold text-xl mb-3">El modo bombero</h3>
           <p class="text-[#0A0A0A]/70 leading-relaxed text-sm">
-            Cada vez que hay un cuello de botella, el instinto es "pongamos un pasante" o "abramos una búsqueda". 
-            Sumás sueldo + cargas sociales + 3 meses de curva de aprendizaje + riesgo de rotación.
+            ¿Cuántas veces esta semana tu equipo te preguntó algo que ya deberían saber resolver solos? 
+            El instinto es contratar, pero el problema no es falta de gente: es que <strong>todo depende de vos</strong>.<br><br>
+            Sueldo + cargas + 3 meses de curva + riesgo de rotación — y el cuello de botella sigue siendo tu cabeza.
           </p>
         </div>
         <div class="bg-white rounded-xl p-8 border border-[#0A0A0A]/5 shadow-sm">
@@ -451,7 +456,7 @@
             </li>
             <li class="flex items-start gap-3 text-[#F5F5F0]/50">
               <svg class="w-5 h-5 text-red-400/50 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
-              <span>No tenés un operador clave ("mano derecha") que pueda mantener el sistema después.</span>
+              <span>No tenés un operador clave que pueda mantener el sistema después. Si no hay "mano derecha", el cuello de botella vuelve a tu cabeza en 3 meses.</span>
             </li>
           </ul>
         </div>
@@ -612,6 +617,15 @@
         <div>
           <label class="block text-sm font-medium text-[#0A0A0A]/70 mb-1.5">Area o topico del problema</label>
           <input type="text" name="area" class="w-full px-4 py-3 rounded-xl border border-[#0A0A0A]/10 bg-white text-[#0A0A0A] focus:outline-none focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] transition" placeholder="Ej: Administrativo, Ventas, Atencion al cliente, Back-office">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-[#0A0A0A]/70 mb-1.5">¿Tenes una mano derecha que pueda operar el sistema? *</label>
+          <select name="mano_derecha" required class="w-full px-4 py-3 rounded-xl border border-[#0A0A0A]/10 bg-white text-[#0A0A0A] focus:outline-none focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] transition">
+            <option value="">Seleccioná...</option>
+            <option value="si">Si, tengo alguien que puede ejecutar</option>
+            <option value="no_aun">Todavia no, pero se que necesito</option>
+            <option value="no">No, y no se si lo necesito</option>
+          </select>
         </div>
         <div>
           <label class="block text-sm font-medium text-[#0A0A0A]/70 mb-1.5">Descripcion del problema *</label>
