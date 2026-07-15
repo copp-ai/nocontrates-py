@@ -76,6 +76,29 @@
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     .scrollbar-hide::-webkit-scrollbar { display: none; }
   </style>
+  <!-- WhatsApp -->
+  <script>
+    const WA = "595983281667";
+    function waOpen(msg) {
+      const url = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
+      window.open(url, "_blank");
+    }
+    function waForm() {
+      const form = document.getElementById("filter-form");
+      const data = new FormData(form);
+      const lines = ["📋 *Filtro rápido NoContrates.py*",""];
+      lines.push("Negocio: " + (data.get("negocio") || "-"));
+      lines.push("Web: " + (data.get("web") || "-"));
+      lines.push("Rubro: " + (data.get("rubro") || "-"));
+      lines.push("Empleados: " + (data.get("empleados") || "-"));
+      lines.push("Rol: " + (data.get("rol") || "-"));
+      lines.push("Area / Topico: " + (data.get("area") || "-"));
+      lines.push("");
+      lines.push("Problema:");
+      lines.push(data.get("problema") || "-");
+      waOpen(lines.join("\n"));
+    }
+  </script>
 </head>
 <body class="antialiased">
 
@@ -89,7 +112,7 @@
         <a href="#caso" class="hover:text-[#D4FF00] transition-colors">Caso real</a>
         <a href="#precio" class="hover:text-[#D4FF00] transition-colors">Precio</a>
       </div>
-      <a href="#cta-final" class="btn-primary px-5 py-2.5 rounded-lg text-sm font-semibold">Auditar puesto →</a>
+      <a href="javascript:void(0)" onclick="document.getElementById('filter').scrollIntoView({behavior:'smooth'})" class="btn-primary px-5 py-2.5 rounded-lg text-sm font-semibold">Comenzar filtro</a>
     </div>
   </nav>
 
@@ -113,7 +136,7 @@
             Te armo el prototipo que los reemplaza en <strong class="text-[#F5F5F0]">5 días</strong>.
           </p>
           <div class="reveal visible reveal-delay-3 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-            <a href="#cta-final" class="btn-primary px-8 py-4 rounded-xl text-base inline-flex items-center gap-2">
+            <a href="javascript:void(0)" onclick="document.getElementById('filter').scrollIntoView({behavior:'smooth'})" class="btn-primary px-8 py-4 rounded-xl text-base inline-flex items-center gap-2">
               Ver si tu puesto es automatizable →
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
@@ -511,12 +534,97 @@
             <span class="font-bold text-[#0A0A0A]">Garantía:</span> Si el prototipo no hace al menos el 70% 
             de lo que haría el candidato, <strong>no pagás.</strong>
           </div>
-          <a href="#cta-final" class="btn-primary w-full py-4 rounded-xl text-base font-semibold inline-flex items-center justify-center gap-2">
-            Agendar auditoría de 15 min →
+          <a href="javascript:void(0)" onclick="document.getElementById('filter').scrollIntoView({behavior:'smooth'})" class="btn-primary w-full py-4 rounded-xl text-base font-semibold inline-flex items-center justify-center gap-2">
+            Agendar auditoria de 15 min
           </a>
           <p class="text-xs text-[#0A0A0A]/40 mt-4">También disponible para cohortes de 3+ puestos con descuento por volumen.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== FILTER FORM ===== -->
+  <section id="filter" class="py-24 md:py-32 bg-[#F5F5F0] text-[#0A0A0A]">
+    <div class="max-w-3xl mx-auto px-5">
+      <div class="text-center mb-12">
+        <span class="font-mono text-xs tracking-[0.2em] uppercase text-[#0A0A0A]/40 bg-[#0A0A0A]/5 px-4 py-2 rounded-full inline-block mb-6">Filtro rápido</span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-[#0A0A0A]">
+          ¿Tu puesto es <span class="underline decoration-[#D4FF00] decoration-4 underline-offset-4">automatizable</span>?
+        </h2>
+        <p class="text-[#0A0A0A]/60 mt-4 max-w-xl mx-auto text-lg">
+          Completá estos datos y te llevamos la respuesta por WhatsApp. Sin compromiso.
+        </p>
+      </div>
+      <form id="filter-form" onsubmit="event.preventDefault(); waForm();" class="reveal space-y-5">
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-medium text-[#0A0A0A]/70 mb-1.5">Nombre del negocio *</label>
+            <input type="text" name="negocio" required class="w-full px-4 py-3 rounded-xl border border-[#0A0A0A]/10 bg-white text-[#0A0A0A] focus:outline-none focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] transition" placeholder="Ej: Balance Centro de Movimiento">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-[#0A0A0A]/70 mb-1.5">¿Tiene web?</label>
+            <input type="text" name="web" class="w-full px-4 py-3 rounded-xl border border-[#0A0A0A]/10 bg-white text-[#0A0A0A] focus:outline-none focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] transition" placeholder="https://... o dejalo vacio">
+          </div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5">
+          <div>
+            <label class="block text-sm font-medium text-[#0A0A0A]/70 mb-1.5">Rubro *</label>
+            <select name="rubro" required class="w-full px-4 py-3 rounded-xl border border-[#0A0A0A]/10 bg-white text-[#0A0A0A] focus:outline-none focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] transition">
+              <option value="">Seleccioná...</option>
+              <option>Salud</option>
+              <option>Educacion</option>
+              <option>Tecnologia</option>
+              <option>Comercio</option>
+              <option>Servicios financieros</option>
+              <option>Logistica / Transporte</option>
+              <option>Industrial / Manufactura</option>
+              <option>Inmobiliario / Construccion</option>
+              <option>Gastronomia / Hoteleria</option>
+              <option>Consultoria / Profesional</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-[#0A0A0A]/70 mb-1.5">Empleados *</label>
+            <select name="empleados" required class="w-full px-4 py-3 rounded-xl border border-[#0A0A0A]/10 bg-white text-[#0A0A0A] focus:outline-none focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] transition">
+              <option value="">Seleccioná...</option>
+              <option>1-5</option>
+              <option>6-20</option>
+              <option>21-50</option>
+              <option>51-100</option>
+              <option>100+</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-[#0A0A0A]/70 mb-1.5">Tu rol *</label>
+            <select name="rol" required class="w-full px-4 py-3 rounded-xl border border-[#0A0A0A]/10 bg-white text-[#0A0A0A] focus:outline-none focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] transition">
+              <option value="">Seleccioná...</option>
+              <option>Duenno / Socio</option>
+              <option>Gerente de Tecnologia</option>
+              <option>Gerente de Operaciones</option>
+              <option>Gerente General</option>
+              <option>Jefe de area</option>
+              <option>Operaciones / Administrativo</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-[#0A0A0A]/70 mb-1.5">Area o topico del problema</label>
+          <input type="text" name="area" class="w-full px-4 py-3 rounded-xl border border-[#0A0A0A]/10 bg-white text-[#0A0A0A] focus:outline-none focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] transition" placeholder="Ej: Administrativo, Ventas, Atencion al cliente, Back-office">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-[#0A0A0A]/70 mb-1.5">Descripcion del problema *</label>
+          <textarea name="problema" required rows="4" class="w-full px-4 py-3 rounded-xl border border-[#0A0A0A]/10 bg-white text-[#0A0A0A] focus:outline-none focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] transition resize-none" placeholder="Que cuello de botella tenes? Que tarea repetitiva te esta comiendo horas de tu equipo? Contalo en 3-4 lineas."></textarea>
+        </div>
+        <div class="text-center pt-4">
+          <button type="submit" class="btn-primary px-10 py-4 rounded-xl text-lg font-semibold inline-flex items-center gap-3 cursor-pointer border-none">
+            Enviar por WhatsApp
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </button>
+          <p class="text-sm text-[#0A0A0A]/40 mt-3">Respondo en menos de 24 horas. Sin vendedores intermediarios.</p>
+        </div>
+      </form>
     </div>
   </section>
 
@@ -607,8 +715,8 @@
         Si tu puesto es automatizable, te lo digo. Si no, también.
       </p>
       <div class="reveal reveal-delay-2">
-        <a href="#" class="btn-primary px-10 py-5 rounded-xl text-lg font-semibold inline-flex items-center gap-3">
-          Agendar auditoría gratuita de 15 min →
+        <a href="javascript:void(0)" onclick="document.getElementById('filter').scrollIntoView({behavior:'smooth'})" class="btn-primary px-10 py-5 rounded-xl text-lg font-semibold inline-flex items-center gap-3">
+          Agendar auditoria gratuita de 15 min
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
         <p class="text-sm text-[#F5F5F0]/30 mt-4">Respondo en menos de 24 horas. Sin vendedores intermediarios.</p>
@@ -625,9 +733,9 @@
           <p class="text-sm text-[#F5F5F0]/30 mt-1">Asunción, Paraguay</p>
         </div>
         <div class="flex items-center gap-6">
-          <a href="#" class="text-[#F5F5F0]/30 hover:text-[#D4FF00] transition-colors text-sm">LinkedIn</a>
-          <a href="#" class="text-[#F5F5F0]/30 hover:text-[#D4FF00] transition-colors text-sm">Email</a>
-          <a href="#" class="text-[#F5F5F0]/30 hover:text-[#D4FF00] transition-colors text-sm">WhatsApp</a>
+          <a href="https://www.linkedin.com/in/coppcabanellas/" target="_blank" class="text-[#F5F5F0]/30 hover:text-[#D4FF00] transition-colors text-sm">LinkedIn</a>
+          <a href="mailto:copp@coppcabanellas.com" class="text-[#F5F5F0]/30 hover:text-[#D4FF00] transition-colors text-sm">Email</a>
+          <a href="https://wa.me/595983281667" target="_blank" class="text-[#F5F5F0]/30 hover:text-[#D4FF00] transition-colors text-sm">WhatsApp</a>
         </div>
         <p class="text-xs text-[#F5F5F0]/20 text-center md:text-right">
           © 2026 Copp Cabanellas · Arquitecto de Co-Inteligencia
