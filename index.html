@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NoContrates.py — Auditoría de Capacidad Instalada con Co-Inteligencia</title>
-  <meta name="description" content="Antes de contratar, auditá. El 80% de los puestos que abrís son puentes humanos entre sistemas. Te armo el prototipo que los reemplaza en 5 días.">
+  <title>NoContrates.py — Diagnóstico de Capacidad Instalada con Co-Inteligencia</title>
+  <meta name="description" content="Antes de contratar, diagnosticá. El 80% de los puestos que abrís son puentes humanos entre sistemas. Te armo el prototipo que los reemplaza en 5 días.">
   <meta name="keywords" content="co-inteligencia, automatización, paraguay, prototipo, ia, eficiencia operativa">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -94,6 +94,8 @@
       lines.push("Rol: " + (data.get("rol") || "-"));
       lines.push("Area / Topico: " + (data.get("area") || "-"));
       lines.push("Mano derecha: " + (data.get("mano_derecha") || "-"));
+      lines.push("Costo mensual (Gs.): " + (data.get("costo_dinero") || "-"));
+      lines.push("Horas/semana perdidas: " + (data.get("costo_horas") || "-"));
       lines.push("");
       lines.push("Problema:");
       lines.push(data.get("problema") || "-");
@@ -126,11 +128,11 @@
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="space-y-8">
           <div class="reveal visible">
-            <span class="font-mono text-xs tracking-[0.2em] uppercase text-[#D4FF00]/80 bg-[#D4FF00]/10 px-4 py-2 rounded-full inline-block">Auditoría de Capacidad Instalada · 5 días · Precio fijo</span>
+            <span class="font-mono text-xs tracking-[0.2em] uppercase text-[#D4FF00]/80 bg-[#D4FF00]/10 px-4 py-2 rounded-full inline-block">Diagnóstico de Capacidad Instalada · 5 días · Precio fijo</span>
           </div>
           <h1 class="reveal visible reveal-delay-1 text-5xl sm:text-6xl lg:text-7xl font-heading font-bold leading-[1.05] tracking-tight">
             Antes de <span class="gradient-text">contratar</span>,<br>
-            auditá.
+            diagnosticá.
           </h1>
           <p class="reveal visible reveal-delay-2 text-lg md:text-xl text-[#F5F5F0]/70 leading-relaxed max-w-lg">
             El 80% de los puestos que abrís son puentes humanos entre sistemas que no se hablan. 
@@ -177,7 +179,7 @@
               <text x="200" y="208" text-anchor="middle" fill="#D4FF00" font-family="JetBrains Mono" font-size="7" font-weight="500">humana</text>
               <!-- Terminal lines -->
               <rect x="120" y="340" width="160" height="40" rx="6" fill="#D4FF00" fill-opacity="0.05" stroke="#D4FF00" stroke-width="0.5"/>
-              <text x="140" y="360" fill="#D4FF00" font-family="JetBrains Mono" font-size="7" opacity="0.6">$ ./auditar puesto_ventas</text>
+              <text x="140" y="360" fill="#D4FF00" font-family="JetBrains Mono" font-size="7" opacity="0.6">$ ./diagnosticar puesto_ventas</text>
               <text x="140" y="372" fill="#D4FF00" font-family="JetBrains Mono" font-size="7">$ █ 80% automatizable</text>
             </svg>
           </div>
@@ -238,7 +240,7 @@
       <div class="text-center mb-16">
         <span class="font-mono text-xs tracking-[0.2em] uppercase text-[#D4FF00]/60 bg-[#D4FF00]/10 px-4 py-2 rounded-full inline-block mb-6">La comparación</span>
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-[#F5F5F0]">
-          Antes y después de <span class="text-[#D4FF00]">auditar</span> un puesto
+          Antes y después de <span class="text-[#D4FF00]">diagnosticar</span> un puesto
         </h2>
       </div>
       <div class="grid md:grid-cols-2 gap-6 md:gap-8">
@@ -278,7 +280,7 @@
           <ul class="space-y-4">
             <li class="flex items-start gap-3 text-[#F5F5F0]/80">
               <span class="text-[#D4FF00] flex-shrink-0 mt-0.5">✓</span>
-              <span>Auditás el puesto real, no el CV de un candidato</span>
+              <span>Diagnosticás el puesto real, no el CV de un candidato</span>
             </li>
             <li class="flex items-start gap-3 text-[#F5F5F0]/80">
               <span class="text-[#D4FF00] flex-shrink-0 mt-0.5">✓</span>
@@ -332,7 +334,7 @@
             <span class="font-mono text-xs uppercase tracking-wider text-[#D4FF00]/60">Día 1</span>
             <div class="flex items-center gap-3 mt-1 mb-3">
               <h3 class="text-xl font-heading font-bold text-[#F5F5F0]">La Ingesta</h3>
-              <span class="font-mono text-[10px] tracking-wider text-[#D4FF00]/80 bg-[#D4FF00]/10 px-2.5 py-1 rounded-full border border-[#D4FF00]/20">1 puesto auditado</span>
+              <span class="font-mono text-[10px] tracking-wider text-[#D4FF00]/80 bg-[#D4FF00]/10 px-2.5 py-1 rounded-full border border-[#D4FF00]/20">1 puesto diagnosticado</span>
             </div>
             <p class="text-[#F5F5F0]/60 leading-relaxed max-w-xl">
               Me pasás la descripción del puesto que creés necesitar + 2-3 ejemplos reales del trabajo 
@@ -512,7 +514,7 @@
           <ul class="text-left space-y-3 mb-8">
             <li class="flex items-start gap-3 text-sm">
               <svg class="w-5 h-5 text-[#D4FF00] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-              <span>Auditoría completa del puesto (Día 1)</span>
+              <span>Diagnóstico completo del puesto (Día 1)</span>
             </li>
             <li class="flex items-start gap-3 text-sm">
               <svg class="w-5 h-5 text-[#D4FF00] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
@@ -540,7 +542,7 @@
             de lo que haría el candidato, <strong>no pagás.</strong>
           </div>
           <a href="javascript:void(0)" onclick="document.getElementById('filter').scrollIntoView({behavior:'smooth'})" class="btn-primary w-full py-4 rounded-xl text-base font-semibold inline-flex items-center justify-center gap-2">
-            Agendar auditoria de 15 min
+            Agendar diagnóstico de 15 min
           </a>
           <p class="text-xs text-[#0A0A0A]/40 mt-4">También disponible para cohortes de 3+ puestos con descuento por volumen.</p>
         </div>
@@ -552,12 +554,12 @@
   <section id="filter" class="py-24 md:py-32 bg-[#F5F5F0] text-[#0A0A0A]">
     <div class="max-w-3xl mx-auto px-5">
       <div class="text-center mb-12">
-        <span class="font-mono text-xs tracking-[0.2em] uppercase text-[#0A0A0A]/40 bg-[#0A0A0A]/5 px-4 py-2 rounded-full inline-block mb-6">Filtro rápido</span>
+        <span class="font-mono text-xs tracking-[0.2em] uppercase text-[#0A0A0A]/40 bg-[#0A0A0A]/5 px-4 py-2 rounded-full inline-block mb-6">Diagnóstico</span>
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-[#0A0A0A]">
-          ¿Tu puesto es <span class="underline decoration-[#D4FF00] decoration-4 underline-offset-4">automatizable</span>?
+          Diagnóstico de <span class="underline decoration-[#D4FF00] decoration-4 underline-offset-4">Fuga de Capital</span> Cerebral
         </h2>
         <p class="text-[#0A0A0A]/60 mt-4 max-w-xl mx-auto text-lg">
-          Completá estos datos y te llevamos la respuesta por WhatsApp. Sin compromiso.
+          Descubrí en 2 minutos cuántas horas y guaraníes estás perdiendo por no tener un sistema. Te enviamos el resultado por WhatsApp.
         </p>
       </div>
       <form id="filter-form" onsubmit="event.preventDefault(); waForm();" class="reveal space-y-5">
@@ -628,12 +630,19 @@
           </select>
         </div>
         <div>
+          <label class="block text-sm font-medium text-[#0A0A0A]/70 mb-1.5">¿Cuánto calculás que te está costando este cuello de botella por mes?</label>
+          <div class="grid md:grid-cols-2 gap-4">
+            <input type="text" name="costo_dinero" class="w-full px-4 py-3 rounded-xl border border-[#0A0A0A]/10 bg-white text-[#0A0A0A] focus:outline-none focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] transition" placeholder="En Gs. ej: 5.000.000">
+            <input type="text" name="costo_horas" class="w-full px-4 py-3 rounded-xl border border-[#0A0A0A]/10 bg-white text-[#0A0A0A] focus:outline-none focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] transition" placeholder="Horas/semana ej: 10">
+          </div>
+        </div>
+        <div>
           <label class="block text-sm font-medium text-[#0A0A0A]/70 mb-1.5">Descripcion del problema *</label>
           <textarea name="problema" required rows="4" class="w-full px-4 py-3 rounded-xl border border-[#0A0A0A]/10 bg-white text-[#0A0A0A] focus:outline-none focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] transition resize-none" placeholder="Que cuello de botella tenes? Que tarea repetitiva te esta comiendo horas de tu equipo? Contalo en 3-4 lineas."></textarea>
         </div>
         <div class="text-center pt-4">
           <button type="submit" class="btn-primary px-10 py-4 rounded-xl text-lg font-semibold inline-flex items-center gap-3 cursor-pointer border-none">
-            Enviar por WhatsApp
+            Descubrir mi fuga de capital
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </button>
           <p class="text-sm text-[#0A0A0A]/40 mt-3">Respondo en menos de 24 horas. Sin vendedores intermediarios.</p>
@@ -722,15 +731,15 @@
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-[#D4FF00]/10 rounded-full blur-3xl pointer-events-none"></div>
     <div class="max-w-3xl mx-auto px-5 text-center relative z-10">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-[#F5F5F0] mb-6 reveal">
-        Dejá de contratar para <span class="gradient-text">tapar agujeros</span>.
+        Recuperá tu tiempo. <span class="gradient-text">Recuperá tu cabeza.</span>
       </h2>
       <p class="text-lg md:text-xl text-[#F5F5F0]/60 leading-relaxed max-w-xl mx-auto mb-10 reveal reveal-delay-1">
-        Agendá una auditoría de 15 minutos. Sin compromiso. 
+        Agendá un diagnóstico de 15 minutos. Sin compromiso. 
         Si tu puesto es automatizable, te lo digo. Si no, también.
       </p>
       <div class="reveal reveal-delay-2">
         <a href="javascript:void(0)" onclick="document.getElementById('filter').scrollIntoView({behavior:'smooth'})" class="btn-primary px-10 py-5 rounded-xl text-lg font-semibold inline-flex items-center gap-3">
-          Agendar auditoria gratuita de 15 min
+          Agendar diagnóstico gratuito de 15 min
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
         <p class="text-sm text-[#F5F5F0]/30 mt-4">Respondo en menos de 24 horas. Sin vendedores intermediarios.</p>
